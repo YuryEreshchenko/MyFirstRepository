@@ -1,14 +1,23 @@
-//Yury Ereshchenko 114012010
+/*Yury Ereshchenko 114012010
+This codes controls the RGB light
+It cycles the colors of RedLEDPin, GreenLEDPin, BlueLEDPin, yellow, pink, turquoise and white
 
-int red = 5;
-int green = 6;
-int blue = 7;
+
+09/24/2025
+
+*/
+
+
+//Setup Arduino pins
+int RedLEDPin = 5;
+int GreenLEDPin = 6;
+int BlueLEDPin = 7;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
-  pinMode(red, OUTPUT);
-  pinMode(green, OUTPUT);
-  pinMode(blue, OUTPUT);
+  pinMode(RedLEDPin, OUTPUT);
+  pinMode(GreenLEDPin, OUTPUT);
+  pinMode(BlueLEDPin, OUTPUT);
 }
 
 
@@ -17,58 +26,61 @@ void setup() {
 void loop() {
 
   //Make sure its off
-  TurnColorOFF(red);
-  TurnColorOFF(green);
-  TurnColorOFF(blue);
+  TurnColorOFF(RedLEDPin);
+  TurnColorOFF(GreenLEDPin);
+  TurnColorOFF(BlueLEDPin);
 
-  TurnColorON(red);
-  delay(5000);
-  TurnColorOFF(red);
-  delay(5000);
+  //RedLEDPin
+  TurnColorON(RedLEDPin);
+  delay(2000);
+  TurnColorOFF(RedLEDPin);
+  delay(2000);
 
-  TurnColorON(green);
-  delay(5000);
-  TurnColorOFF(green);
-  delay(5000);
+  //GreenLEDPin
+  TurnColorON(GreenLEDPin);
+  delay(2000);
+  TurnColorOFF(GreenLEDPin);
+  delay(2000);
 
-  TurnColorON(blue);
-  delay(5000);
-  TurnColorOFF(blue);
-  delay(5000);
+  //BlueLEDPin
+  TurnColorON(BlueLEDPin);
+  delay(2000);
+  TurnColorOFF(BlueLEDPin);
+  delay(2000);
 
   //YELLOW
-  TurnColorON(red);
-  TurnColorON(green);
-  delay(5000);
-  TurnColorOFF(red);
-  TurnColorOFF(green);
-  delay(5000);
+  TurnColorON(RedLEDPin);
+  TurnColorON(GreenLEDPin);
+  delay(2000);
+  TurnColorOFF(RedLEDPin);
+  TurnColorOFF(GreenLEDPin);
+  delay(2000);
 
-  //Magenta/pink
-  TurnColorON(red);
-  TurnColorON(blue);
-  delay(5000);
-  TurnColorOFF(red);
-  TurnColorOFF(blue);
-  delay(5000);
+  //PINK
+  TurnColorON(RedLEDPin);
+  TurnColorON(BlueLEDPin);
+  delay(2000);
+  TurnColorOFF(RedLEDPin);
+  TurnColorOFF(BlueLEDPin);
+  delay(2000);
 
-  //Turquoise
-  TurnColorON(green);
-  TurnColorON(blue);
-  delay(5000);
-  TurnColorOFF(green);
-  TurnColorOFF(blue);
-  delay(5000);
+  //TURQUOISE
+  TurnColorON(GreenLEDPin);
+  TurnColorON(BlueLEDPin);
+  delay(2000);
+  TurnColorOFF(GreenLEDPin);
+  TurnColorOFF(BlueLEDPin);
+  delay(2000);
 
   //WHITE
-  TurnColorON(red);
-  TurnColorON(green);
-  TurnColorON(blue);
-  delay(5000);
-  TurnColorON(red);
-  TurnColorON(green);
-  TurnColorON(blue);
-  delay(5000);
+  TurnColorON(RedLEDPin);
+  TurnColorON(GreenLEDPin);
+  TurnColorON(BlueLEDPin);
+  delay(2000);
+  TurnColorON(RedLEDPin);
+  TurnColorON(GreenLEDPin);
+  TurnColorON(BlueLEDPin);
+  delay(2000);
 }
 
 void TurnColorON(int color) {
