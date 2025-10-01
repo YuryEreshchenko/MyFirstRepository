@@ -19,7 +19,7 @@ int pushButtonState = 0;
 // the setup function runs once when you press reset or power the board
 void setup() {
 
-
+  Serial.begin(9600);
   pinMode(RedLEDPin, OUTPUT);
   pinMode(GreenLEDPin, OUTPUT);
   pinMode(BlueLEDPin, OUTPUT);
@@ -29,11 +29,13 @@ void setup() {
 
 
 
+
 // the loop function runs over and over again forever
 void loop() {
 
   pushButtonState = digitalRead(pushButton);
-
+  Serial.println(pushButtonState);
+  delay(1);
 
   if (pushButtonState == LOW){
     TurnColorON(RedLEDPin);
