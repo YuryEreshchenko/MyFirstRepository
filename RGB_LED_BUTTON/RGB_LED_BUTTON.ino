@@ -9,15 +9,22 @@ It cycles the colors of RedLEDPin, GreenLEDPin, BlueLEDPin, yellow, pink, turquo
 
 
 //Setup Arduino pins
-int RedLEDPin = 9;
-int GreenLEDPin = 10;
-int BlueLEDPin = 11;
+const int RedLEDPin = 9;
+const int GreenLEDPin = 10;
+const int BlueLEDPin = 11;
+
+const int pushButton = 2;
+int pushButtonState = 0;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
+
+
   pinMode(RedLEDPin, OUTPUT);
   pinMode(GreenLEDPin, OUTPUT);
   pinMode(BlueLEDPin, OUTPUT);
+
+  pinMode(pushButton, INPUT);
 }
 
 
@@ -25,30 +32,45 @@ void setup() {
 // the loop function runs over and over again forever
 void loop() {
 
-  //Make sure its off
-  TurnColorOFF(RedLEDPin);
-  TurnColorOFF(GreenLEDPin);
-  TurnColorOFF(BlueLEDPin);
+  pushButtonState = digitalRead(pushButton);
 
-  //GreenLEDPin
-  TurnColorON(GreenLEDPin);
-  delay(5000);
-  TurnColorOFF(GreenLEDPin);
-  delay(1000);
 
-  //YELLOW
-  TurnColorON(RedLEDPin);
-  TurnColorON(GreenLEDPin);
-  delay(1000);
-  TurnColorOFF(RedLEDPin);
-  TurnColorOFF(GreenLEDPin);
-  delay(1000);
+  if (pushButtonState == LOW){
+    TurnColorON(RedLEDPin);
+    TurnColorON(GreenLEDPin);
+    TurnColorON(BlueLEDPin);
+  }
 
-  //RedLEDPin
-  TurnColorON(RedLEDPin);
-  delay(8000);
-  TurnColorOFF(RedLEDPin);
-  delay(1000);
+  else {
+    TurnColorOFF(RedLEDPin);
+    TurnColorOFF(GreenLEDPin);
+    TurnColorOFF(BlueLEDPin);
+  }
+  
+  // //Make sure its off
+  // TurnColorOFF(RedLEDPin);
+  // TurnColorOFF(GreenLEDPin);
+  // TurnColorOFF(BlueLEDPin);
+
+  // //GreenLEDPin
+  // TurnColorON(GreenLEDPin);
+  // delay(5000);
+  // TurnColorOFF(GreenLEDPin);
+  // delay(1000);
+
+  // //YELLOW
+  // TurnColorON(RedLEDPin);
+  // TurnColorON(GreenLEDPin);
+  // delay(1000);
+  // TurnColorOFF(RedLEDPin);
+  // TurnColorOFF(GreenLEDPin);
+  // delay(1000);
+
+  // //RedLEDPin
+  // TurnColorON(RedLEDPin);
+  // delay(8000);
+  // TurnColorOFF(RedLEDPin);
+  // delay(1000);
 
   // //BlueLEDPin
   // TurnColorON(BlueLEDPin);
