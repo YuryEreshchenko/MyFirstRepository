@@ -34,10 +34,18 @@ void setup() {
 void loop() {
 
   pushButtonState = digitalRead(pushButton);
+  //Inverse the state becuase module gives the opposite
+  if (pushButtonState == LOW) {
+    pushButtonState = HIGH;
+  }
+  else if (pushButtonState == HIGH) {
+    pushButtonState = LOW;
+  }
+
   Serial.println(pushButtonState);
   delay(1);
 
-  if (pushButtonState == LOW){
+  if (pushButtonState == HIGH){
     TurnColorON(RedLEDPin);
     TurnColorON(GreenLEDPin);
     TurnColorON(BlueLEDPin);
